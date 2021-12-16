@@ -122,7 +122,7 @@ STARTGRP_BUTTON = InlineKeyboardMarkup(
 
 STARTGRP_STRING = """**✨ Bot is online now ✨**"""
 
-@sltg.on_message(filters.command(["start", f"start@{BOT_USERNAME}"]) & filters.group)
+@Client.on_message(filters.command(["start", f"start@{BOT_USERNAME}"]) & filters.group)
 async def start_(client, message):
     await message.reply_text(STARTGRP_STRING, reply_markup=STARTGRP_BUTTON, disable_web_page_preview=True, quote=True)
 
