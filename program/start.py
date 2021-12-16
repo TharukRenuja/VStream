@@ -59,31 +59,27 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-@Client.on_message(
-    command(["start", f"start@{BOT_USERNAME}"]) & filters.private & ~filters.edited
-)
-async def start_(client: Client, message: Message):
-    chat_id = message.from_user.id
-    if not await db.is_user_exist(chat_id):
-        data = await client.get_me()
-        BOT_USERNAME = data.username
-        await db.add_user(chat_id)
-        if LOG_CHANNEL:
-            await client.send_message(
-                LOG_CHANNEL,
-                f"#NEWUSER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) started @{BOT_USERNAME} !!",
-            )
-        else:
-            logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
-    await message.reply_text(
-        f"""✨ **Welcome {message.from_user.mention()} !**\n
-💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **Allows you to play music and video on groups through the new Telegram's video chats!**
+@Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.private)
+async def start(client, message):
+    if message.chat.type == "private":
+        chat_id = message.from_user.id
+        if not await db.is_user_exist(chat_id):
+            data = await client.get_me()
+            BOT_USERNAME = data.username
+            await db.add_user(chat_id)
+            if LOG_CHANNEL:
+                await client.send_message(
+                    LOG_CHANNEL,
+                    f"#NEWUSER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) started @{BOT_USERNAME} !!",
+                )
+            else:
+                logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
+        await message.reply_text(START_STRING, reply_markup=START_BUTTON, disable_web_page_preview=True, quote=True)
+    else:
+        await message.reply_text(STARTGRP_STRING, reply_markup=STARTGRP_BUTTON, disable_web_page_preview=True, quote=True)
+        
 
-💡 **Find out all the Bot's commands and how they work by clicking on the » 📚 Commands button!**
-
-🔖 **To know how to use this bot, please click on the » ❓ Basic Guide button!**
-""",
-        reply_markup=InlineKeyboardMarkup(
+START_BUTTON = InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton("❓ Basic Guide", callback_data="cbhowtouse")],
                 [
@@ -109,6 +105,30 @@ async def start_(client: Client, message: Message):
         disable_web_page_preview=True,
     )
 
+START_STRING = """✨ **Welcome {message.from_user.mention()} !**\n
+💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **Allows you to play music and video on groups through the new Telegram's video chats!**
+
+💡 **Find out all the Bot's commands and how they work by clicking on the » 📚 Commands button!**
+
+🔖 **To know how to use this bot, please click on the » ❓ Basic Guide button!**"""
+
+STARTGRP_BUTTON = InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton("❓ Basic Guide", callback_data="cbhowtouse")],
+                [
+                    InlineKeyboardButton("📚 Commands", callback_data="cbcmds"),
+                    InlineKeyboardButton( "🌐 Search Youtube", switch_inline_query='')
+                ]
+            ]
+        ),
+        disable_web_page_preview=True,
+    )
+
+STARTGRP_STRING = """**✨ Bot is online now ✨**"""
+
+@sltg.on_message(filters.command(["start", f"start@{BOT_USERNAME}"]) & filters.group)
+async def start_(client, message):
+    await message.reply_text(STARTGRP_STRING, reply_markup=STARTGRP_BUTTON, disable_web_page_preview=True, quote=True)
 
 @Client.on_message(
     command(["alive", f"alive@{BOT_USERNAME}"]) & filters.group & ~filters.edited
