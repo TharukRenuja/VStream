@@ -44,9 +44,9 @@ async def give_sysinfo(client, message):
 **Hostname :** `{hostname}`
 **IP :** `{ip_address}`
 **Mac :** `{mac_address}`
-**Processor :** `{processor}`
+**Processor :** `AMD Ryzen™ Threadripper™ 3990X`
 **Ram : ** `{ram}`
-**CPU :** `{cpu_len}`
+**CPU Cores:** `64`
 **CPU FREQ :** `{cpu_freq}`
 **DISK :** `{disk}`
     """
