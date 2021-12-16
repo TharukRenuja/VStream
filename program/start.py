@@ -101,9 +101,7 @@ START_BUTTON = InlineKeyboardMarkup(
                     )
                 ]
             ]
-        ),
-        disable_web_page_preview=True,
-    )
+        )
 
 START_STRING = """✨ **Welcome {message.from_user.mention()} !**\n
 💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **Allows you to play music and video on groups through the new Telegram's video chats!**
