@@ -103,8 +103,8 @@ START_BUTTON = InlineKeyboardMarkup(
             ]
         )
 
-START_STRING = """✨ **Welcome {message.from_user.mention()} !**\n
-💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **Allows you to play music and video on groups through the new Telegram's video chats!**
+START_STRING = """✨ **Welcome!**\n
+💭 [Video Stream VC](https://t.me/videostreamslbot) **Allows you to play music and video on groups through the new Telegram's video chats!**
 
 💡 **Find out all the Bot's commands and how they work by clicking on the » 📚 Commands button!**
 
