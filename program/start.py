@@ -118,9 +118,7 @@ STARTGRP_BUTTON = InlineKeyboardMarkup(
                     InlineKeyboardButton( "🌐 Search Youtube", switch_inline_query='')
                 ]
             ]
-        ),
-        disable_web_page_preview=True,
-    )
+        )
 
 STARTGRP_STRING = """**✨ Bot is online now ✨**"""
 
