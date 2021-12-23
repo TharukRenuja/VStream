@@ -47,6 +47,7 @@
 - Logger support
 - Broadcast Function
 - Statics watch Function
+- Ban & Unban
 
 ## 🛠 Commands:
 | Command | Description |
@@ -71,6 +72,11 @@
 | `/restart` | restart your bot directly without leaving telegram (sudo only) |
 | `/clean` | clean all raw files |
 | `/rmd` | clean all downloaded files |
+| `/stats` | watch how many users use your bot |
+| `/brodcast` | broadcast a message to the users |
+| `/ban` | ban a user |
+| `/unban` | unban a user |
+| `/banned` | show banned users list |
 ## Heroku Deployment 💜
 The easy way to host this bot, deploy to Heroku, Change the app country to Europe (it will help to make the bot stable).
 
