@@ -25,6 +25,9 @@
   <img src="https://telegra.ph/file/b8c1461bcbbad5664aa48.png">
 </p>
 
+## Demo Bot
+<a href="https://t.me/videostreamslbot"><img src="https://img.shields.io/badge/Video%20Stream%20VC-blue.svg?style=for-the-badge&logo=Telegram"></a>
+
 ## ✨ Features
 - Music & Video stream support
 - MultiChat support
