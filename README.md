@@ -40,6 +40,11 @@
 - Userbot Auto Join
 - Direct Updater
 
+# Modified & Added Features By Me🤣
+- Logger support
+- Broadcast Function
+- Statics watch Function
+
 ## 🛠 Commands:
 | Command | Description |
 | ------ | ------ |
@@ -90,7 +95,8 @@ python3 main.py # run the bot.
 
 # Credits 💖
 
-- [Levina](https://github.com/levina-lab) ``Dev``
+- [Levina](https://github.com/levina-lab) ``Owner``
+- [Tharuk](https://github.com/TharukRenuja) ``Dev``
 - [Zxce3](https://github.com/Zxce3) ``Dev``
 - [DoellBarr](https://github.com/DoellBarr) ``Dev``
 - [tofikdn](https://github.com/tofikdn) ``Dev``
@@ -99,4 +105,4 @@ python3 main.py # run the bot.
 - [Dan](https://github.com/delivrance) for [``Pyrogram``](https://github.com/pyrogram)
 
 ### Support & Updates 🎑
-<a href="https://t.me/VeezSupportGroup"><img src="https://img.shields.io/badge/Join-Group%20Support-blue.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/levinachannel"><img src="https://img.shields.io/badge/Join-Updates%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/trtechguide"><img src="https://img.shields.io/badge/Join-Group%20Support-blue.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/SLBotsOfficial"><img src="https://img.shields.io/badge/Join-Updates%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
