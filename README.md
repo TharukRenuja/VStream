@@ -40,7 +40,7 @@
 - Userbot Auto Join
 - Direct Updater
 
-# Modified & Added Features By Me🤣
+## Modified & Added Features By Me🤣
 - Logger support
 - Broadcast Function
 - Statics watch Function
@@ -106,3 +106,7 @@ python3 main.py # run the bot.
 
 ### Support & Updates 🎑
 <a href="https://t.me/trtechguide"><img src="https://img.shields.io/badge/Join-Group%20Support-blue.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/SLBotsOfficial"><img src="https://img.shields.io/badge/Join-Updates%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
+
+#### Special Notice
+
+Sorry For Clone [Your Project](https://github.com/levina-lab/video-stream). I cloned the projects because I don't like to pull request after modify😁
