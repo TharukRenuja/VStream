@@ -1,6 +1,12 @@
 from datetime import datetime
 from sys import version_info
 from time import time
+import traceback
+import logging
+import config
+from handlers.broadcast import broadcast
+from handlers.check_user import handle_user_status
+from handlers.database import Database
 
 from config import (
     ALIVE_IMG,
@@ -10,6 +16,10 @@ from config import (
     GROUP_SUPPORT,
     OWNER_NAME,
     UPDATES_CHANNEL,
+    AUTH_USERS,
+    LOG_CHANNEL,
+    DB_URL,
+    DB_NAME,
 )
 from program import __version__
 from driver.veez import user
@@ -22,6 +32,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 __major__ = 0
 __minor__ = 2
 __micro__ = 1
+
+db = Database(DB_URL, DB_NAME)
 
 __python_version__ = f"{version_info[0]}.{version_info[1]}.{version_info[2]}"
 
