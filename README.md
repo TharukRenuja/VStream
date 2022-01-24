@@ -1,4 +1,4 @@
-<p align="center"><a href="https://t.me/VeezVideoBot"><img src="https://github.com/levina-lab/video-stream/raw/main/driver/veezlogo.png"></a></p>
+<p align="center"><a href="https://t.me/videostreamslbot"><img src="https://github.com/TharukRenuja/VStream/raw/main/driver/veezlogo.png"></a></p>
 <p align="center">
     <br><b>Video Stream is an Advanced Telegram Bot that's allow you to play Video & Music on Telegram Group Video Chat</b><br>
 </p>
@@ -16,17 +16,10 @@
 ## 📊 Stats
 [![CodeFactor](https://www.codefactor.io/repository/github/levina-lab/video-stream/badge)](https://www.codefactor.io/repository/github/levina-lab/video-stream)
 
-## 🧪 Get `SESSION_NAME` from below:
-
-[![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@levinalab/StringSession#main.py) ``Pyrogram``
-
 ## 🎭 Preview
 <p align="center">
-  <img src="https://telegra.ph/file/b8c1461bcbbad5664aa48.png">
+  <img src="https://telegra.ph/file/11e63eb2b59ad15a43a03.jpg">
 </p>
-
-## Demo Bot
-<a href="https://t.me/videostreamslbot"><img src="https://img.shields.io/badge/Video%20Stream%20VC-blue.svg?style=for-the-badge&logo=Telegram"></a>
 
 ## ✨ Features
 - Music & Video stream support
@@ -43,16 +36,10 @@
 - Userbot Auto Join
 - Direct Updater
 
-## Modified & Added Features By Me🤣
-- Logger support
-- Broadcast Function
-- Statics watch Function
-- Ban & Unban
-
 ## 🛠 Commands:
 | Command | Description |
 | ------ | ------ |
-| `/mplay (query)` | play music from youtube |
+| `/play (query)` | play music from youtube |
 | `/vplay (query)` | play video from youtube |
 | `/vstream (live link)` | play video live streaming video |
 | `/pause` | pause the streaming (admin only) |
@@ -72,15 +59,15 @@
 | `/restart` | restart your bot directly without leaving telegram (sudo only) |
 | `/clean` | clean all raw files |
 | `/rmd` | clean all downloaded files |
-| `/stats` | watch how many users use your bot |
-| `/brodcast` | broadcast a message to the users |
-| `/ban` | ban a user |
-| `/unban` | unban a user |
-| `/banned` | show banned users list |
+
+## Generate Pyrogram session string from below 🔻
+
+[![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@levinalab/StringSession#main.py)
+
 ## Heroku Deployment 💜
 The easy way to host this bot, deploy to Heroku, Change the app country to Europe (it will help to make the bot stable).
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TharukRenuja/VStream)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/levina-lab/video-stream)
 
 ## VPS Deployment 📡
 Get the best Quality of streaming performance by hosting it on VPS, here's the step's:
@@ -104,18 +91,13 @@ python3 main.py # run the bot.
 
 # Credits 💖
 
-- [Levina](https://github.com/levina-lab) ``Owner``
-- [Tharuk](https://github.com/TharukRenuja) ``Dev``
+- [Levina](https://github.com/levina-lab) ``Dev``
 - [Zxce3](https://github.com/Zxce3) ``Dev``
 - [DoellBarr](https://github.com/DoellBarr) ``Dev``
 - [tofikdn](https://github.com/tofikdn) ``Dev``
-- [Hunter-XDD](https://github.com/Hunter-XDD) ``Dev``
+- [Makoto-XD](https://github.com/Makoto-XD) ``Supporter``
 - [Laky's](https://github.com/Laky-64) for [``py-tgcalls``](https://github.com/pytgcalls/pytgcalls)
 - [Dan](https://github.com/delivrance) for [``Pyrogram``](https://github.com/pyrogram)
 
 ### Support & Updates 🎑
-<a href="https://t.me/trtechguide"><img src="https://img.shields.io/badge/Join-Group%20Support-blue.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/SLBotsOfficial"><img src="https://img.shields.io/badge/Join-Updates%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
-
-#### Special Notice
-
-Sorry For Clone [Your Project](https://github.com/levina-lab/video-stream). I cloned the projects because I don't like to pull request after modify😁
+<a href="https://t.me/VeezSupportGroup"><img src="https://img.shields.io/badge/Join-Group%20Support-blue.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/levinachannel"><img src="https://img.shields.io/badge/Join-Updates%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
