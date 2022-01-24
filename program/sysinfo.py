@@ -39,14 +39,14 @@ async def give_sysinfo(client, message):
     
 **PlatForm :** `{splatform}`
 **PlatForm - Release :** `{platform_release}`
-**PlatFork - Version :** `{platform_version}`
+**PlatForm - Version :** `{platform_version}`
 **Architecture :** `{architecture}`
-**Hostname :** `{hostname}`
+**HostName :** `{hostname}`
 **IP :** `{ip_address}`
 **Mac :** `{mac_address}`
-**Processor :** `AMD Ryzen™ Threadripper™ 3990X`
+**Processor :** `{processor}`
 **Ram : ** `{ram}`
-**CPU Cores:** `64`
+**CPU :** `{cpu_len}`
 **CPU FREQ :** `{cpu_freq}`
 **DISK :** `{disk}`
     """

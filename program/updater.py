@@ -61,10 +61,10 @@ async def update_repo(_, message: Message):
     update_avail = updater()
     if update_avail:
         await msg.edit("✅ update finished\n\n• bot restarted, back active again in 1 minutes.")
-        system("git pull -f && pip3 install -r requirements.txt")
+        system("git pull -f && pip3 install --no-cache-dir -r requirements.txt")
         execle(sys.executable, sys.executable, "main.py", environ)
         return
-    await msg.edit("bot is **up-to-date** with [main](https://github.com/TharukRenuja/video-stream)", disable_web_page_preview=True)
+    await msg.edit("bot is **up-to-date** with [v2](https://github.com/TharukRenuja/VStream/tree/v2)", disable_web_page_preview=True)
 
 
 @Client.on_message(command(["restart", f"restart@{BOT_USERNAME}"]) & ~filters.edited)

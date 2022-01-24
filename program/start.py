@@ -33,9 +33,10 @@ __major__ = 0
 __minor__ = 2
 __micro__ = 1
 
+db = Database(DB_URL, DB_NAME)
+
 __python_version__ = f"{version_info[0]}.{version_info[1]}.{version_info[2]}"
 
-db = Database(DB_URL, DB_NAME)
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
@@ -59,7 +60,9 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-@Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.private)
+@Client.on_message(
+    command(["start", f"start@{BOT_USERNAME}"]) & filters.private & ~filters.edited
+)
 async def start(client, message):
     if message.chat.type == "private":
         chat_id = message.from_user.id
@@ -77,37 +80,10 @@ async def start(client, message):
         await message.reply_text(START_STRING, reply_markup=START_BUTTON, disable_web_page_preview=True, quote=True)
     else:
         await message.reply_text(STARTGRP_STRING, reply_markup=STARTGRP_BUTTON, disable_web_page_preview=True, quote=True)
-        
-
-START_BUTTON = InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("❓ Basic Guide", callback_data="cbhowtouse")],
-                [
-                    InlineKeyboardButton("📚 Commands", callback_data="cbcmds"),
-                    InlineKeyboardButton("❤️ Donate", url=f"https://t.me/{OWNER_NAME}"),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "👥 Group", url=f"https://t.me/{GROUP_SUPPORT}"
-                    ),
-                    InlineKeyboardButton(
-                        "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
-                    ),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "➕ Add me to your Group ➕",
-                        url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
-                    )
-                ]
-            ]
-        )
 
 START_STRING = """✨ **Welcome!**\n
 💭 [Video Stream VC](https://t.me/videostreamslbot) **Allows you to play music and video on groups through the new Telegram's video chats!**
-
 💡 **Find out all the Bot's commands and how they work by clicking on the » 📚 Commands button!**
-
 🔖 **To know how to use this bot, please click on the » ❓ Basic Guide button!**"""
 
 STARTGRP_BUTTON = InlineKeyboardMarkup(
@@ -119,17 +95,24 @@ STARTGRP_BUTTON = InlineKeyboardMarkup(
                 ]
             ]
         )
+        
+START_BUTTON = InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton("➕ Add me to your Group ➕",url=f"https://t.me/{BOT_USERNAME}?startgroup=true",)],
+                [InlineKeyboardButton("❓ Basic Guide", callback_data="cbhowtouse")],
+                [InlineKeyboardButton("📚 Commands", callback_data="cbcmds"),InlineKeyboardButton("❤️ Donate", url=f"https://t.me/{OWNER_NAME}"),],
+                [InlineKeyboardButton("👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"),InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"),],
+                [InlineKeyboardButton("🌐 Source Code", url="https://github.com/TharukRenuja/VStream")],
+            ]
+        )        
 
 STARTGRP_STRING = """**✨ Bot is online now ✨**"""
-
-@Client.on_message(filters.command(["start", f"start@{BOT_USERNAME}"]) & filters.group)
-async def start_(client, message):
-    await message.reply_text(STARTGRP_STRING, reply_markup=STARTGRP_BUTTON, disable_web_page_preview=True, quote=True)
 
 @Client.on_message(
     command(["alive", f"alive@{BOT_USERNAME}"]) & filters.group & ~filters.edited
 )
-async def alive(client: Client, message: Message):
+async def alive(c: Client, message: Message):
+    chat_id = message.chat.id
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
@@ -145,9 +128,10 @@ async def alive(client: Client, message: Message):
         ]
     )
 
-    alive = f"**Hello {message.from_user.mention()}, i'm {BOT_NAME}**\n\n✨ Bot is working normally\n🍀 My Master: [{ALIVE_NAME}](https://t.me/{OWNER_NAME})\n✨ Bot Version: `v{__version__}`\n🍀 Pyrogram Version: `{pyrover}`\n✨ Python Version: `{__python_version__}`\n🍀 PyTgCalls version: `{pytover.__version__}`\n✨ Uptime Status: `{uptime}`\n\n**Thanks for Adding me here, for playing video & music on your Group's video chat** ❤"
+    alive = f"**Hello {message.from_user.mention()}, i'm {BOT_NAME}**\n\n🧑🏼‍💻 My Master: [{ALIVE_NAME}](https://t.me/{OWNER_NAME})\n👾 Bot Version: `v{__version__}`\n🔥 Pyrogram Version: `{pyrover}`\n🐍 Python Version: `{__python_version__}`\n✨ PyTgCalls Version: `{pytover.__version__}`\n🆙 Uptime Status: `{uptime}`\n\n❤ **Thanks for Adding me here, for playing video & music on your Group's video chat**"
 
-    await message.reply_photo(
+    await c.send_photo(
+        chat_id,
         photo=f"{ALIVE_IMG}",
         caption=alive,
         reply_markup=keyboard,
@@ -181,9 +165,9 @@ async def new_chat(c: Client, m: Message):
     for member in m.new_chat_members:
         if member.id == bot_id:
             return await m.reply(
-                "❤️ **Thanks for adding me to the Group !**\n\n"
-                "**Promote me as administrator of the Group, otherwise I will not be able to work properly, and don't forget to type /userbotjoin for invite the assistant.**\n\n"
-                "**Once done, type** /reload",
+                "❤️ Thanks for adding me to the **Group** !\n\n"
+                "Appoint me as administrator in the **Group**, otherwise I will not be able to work properly, and don't forget to type `/userbotjoin` for invite the assistant.\n\n"
+                "Once done, then type `/reload`",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -197,16 +181,6 @@ async def new_chat(c: Client, m: Message):
                 )
             )
 
-@Client.on_message(filters.private & filters.command("broadcast"))
-async def broadcast_handler_open(_, m):
-    if m.from_user.id not in AUTH_USERS:
-        await m.delete()
-        return
-    if m.reply_to_message is None:
-        await m.delete()
-    else:
-        await broadcast(m, db)
-        
 @Client.on_message(filters.private & filters.command("stats"))
 async def sts(c, m):
     if m.from_user.id not in AUTH_USERS:
@@ -317,3 +291,13 @@ async def _banned_usrs(c, m):
         os.remove("banned-users.txt")
         return
     await m.reply_text(reply_text, True)
+    
+@Client.on_message(filters.private & filters.command("broadcast"))
+async def broadcast_handler_open(_, m):
+    if m.from_user.id not in AUTH_USERS:
+        await m.delete()
+        return
+    if m.reply_to_message is None:
+        await m.delete()
+    else:
+        await broadcast(m, db)    
