@@ -86,33 +86,13 @@ STARTGRP_BUTTON = InlineKeyboardMarkup(
         
 START_BUTTON = InlineKeyboardMarkup(
             [
-                [
-                    InlineKeyboardButton(
-                        "➕ Add me to your Group ➕",
-                        url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
-                    )
-                ],
+                [InlineKeyboardButton("➕ Add me to your Group ➕",url=f"https://t.me/{BOT_USERNAME}?startgroup=true",)],
                 [InlineKeyboardButton("❓ Basic Guide", callback_data="cbhowtouse")],
-                [
-                    InlineKeyboardButton("📚 Commands", callback_data="cbcmds"),
-                    InlineKeyboardButton("❤️ Donate", url=f"https://t.me/{OWNER_NAME}"),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
-                    ),
-                    InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
-                    ),
-                ],
-                [
-                    InlineKeyboardButton(
-                        "🌐 Source Code", url="https://github.com/TharukRenuja/VStream"
-                    )
-                ],
+                [InlineKeyboardButton("📚 Commands", callback_data="cbcmds"),InlineKeyboardButton("❤️ Donate", url=f"https://t.me/{OWNER_NAME}"),],
+                [InlineKeyboardButton("👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"),InlineKeyboardButton("📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"),],
+                [InlineKeyboardButton("🌐 Source Code", url="https://github.com/TharukRenuja/VStream")],
             ]
-        )
-    )        
+        )        
 
 STARTGRP_STRING = """**✨ Bot is online now ✨**"""
 
