@@ -111,8 +111,7 @@ START_BUTTON = InlineKeyboardMarkup(
                     )
                 ],
             ]
-        ),
-        disable_web_page_preview=True,
+        )
     )        
 
 STARTGRP_STRING = """**✨ Bot is online now ✨**"""
